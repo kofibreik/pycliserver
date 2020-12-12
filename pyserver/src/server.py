@@ -26,5 +26,4 @@ while True:
                 break
     finally:
         connection.close()
-        print (client_address, '- Connection closed')
-
+        print (client_address, '- Connection closed', file=sys.stderr)
