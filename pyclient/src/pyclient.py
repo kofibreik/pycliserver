@@ -10,9 +10,11 @@ target_number = sys.argv[2]
 
 print ('connecting to %s port %s' % server_address, file=sys.stderr)
 
-i=0
+sock.connect(server_address)
+sock_ip, sock_num = sock.getsockname()
+print("{} {} {}".format(sock_ip, sock_num, target_number))
 
-while int(i) <= int(target_number):
+while int(sock_num) <= int(target_number):
   sock.close()
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   sock.connect(server_address)
@@ -36,4 +38,3 @@ while int(i) <= int(target_number):
      sock.close()
      print ('closing connection {} {}'.format(sock_ip, sock_num),file=sys.stderr)
 
-  i += 1
