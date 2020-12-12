@@ -11,5 +11,5 @@ RUN pip install -r requirements.txt
 
 # copy the content of the local src directory to the working directory
 COPY src/ .
-ENTRYPOINT ["/bin/bash"]
-CMD ["/bin/sleep", "3650d"]
+
+CMD ["sleep", "infinity"]
