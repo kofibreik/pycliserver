@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 # copy the content of the local src directory to the working directory
 COPY src/ .
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
