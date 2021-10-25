@@ -20,6 +20,8 @@ while True:
         while True:
             data = connection.recv(16)
             print (client_address, ' - received "%s"' % data, file=sys.stderr)
+            print ('test log', file=sys.stderr)
+
             if data:
                 connection.sendall(data)
             else:
