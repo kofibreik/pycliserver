@@ -1,5 +1,6 @@
 import socket
 import sys
+import time
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -13,19 +14,9 @@ sock.bind(server_address)
 sock.listen(1)
 
 while True:
-    #print ('waiting for a connection', file=sys.stderr)
-    connection, client_address = sock.accept()
     try:
-        #print ('client connected: ', client_address, file=sys.stderr)
-        while True:
-            data = connection.recv(16)
-            #print (client_address, ' - received "%s"' % data, file=sys.stderr)
-            print ('{"level":"info","name":"fred","home":"bedrock"}', file=sys.stderr)
-
-            if data:
-                connection.sendall(data)
-            else:
-                break
+        time.sleep(3600)
+        print ('{"level":"info","name":"fred","home":"bedrock"}', file=sys.stderr)
     finally:
-        connection.close()
-        #print (client_address, '- Connection closed', file=sys.stderr)
+        print ('{"level":"info","name":"exit","home":"exit"}', file=sys.stderr)
+        
