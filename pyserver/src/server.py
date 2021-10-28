@@ -8,19 +8,19 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #server_name = sys.argv[1]
 server_name = '0.0.0.0'
 server_address = (server_name, 10000)
-print ('starting up on %s port %s' % server_address, file=sys.stderr)
+#print ('starting up on %s port %s' % server_address, file=sys.stderr)
 sock.bind(server_address)
 sock.listen(1)
 
 while True:
-    print ('waiting for a connection', file=sys.stderr)
+    #print ('waiting for a connection', file=sys.stderr)
     connection, client_address = sock.accept()
     try:
-        print ('client connected: ', client_address, file=sys.stderr)
+        #print ('client connected: ', client_address, file=sys.stderr)
         while True:
             data = connection.recv(16)
-            print (client_address, ' - received "%s"' % data, file=sys.stderr)
-            print ('test log', file=sys.stderr)
+            #print (client_address, ' - received "%s"' % data, file=sys.stderr)
+            print ('{"level":"info","name":"fred","home":"bedrock"}', file=sys.stderr)
 
             if data:
                 connection.sendall(data)
@@ -28,4 +28,4 @@ while True:
                 break
     finally:
         connection.close()
-        print (client_address, '- Connection closed', file=sys.stderr)
+        #print (client_address, '- Connection closed', file=sys.stderr)
