@@ -16,7 +16,7 @@ sock.listen(1)
 while True:
     try:
         print ('{"level":"info","name":"fred","home":"bedrock"}', file=sys.stderr)
-        time.sleep(300)
+        time.sleep(60)
     finally:
         print ('{"level":"info","name":"exit","home":"exit"}', file=sys.stderr)
         
