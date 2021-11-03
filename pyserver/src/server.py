@@ -15,7 +15,8 @@ sock.listen(1)
 
 while True:
     try:
-        print ('{"level":"info","name":"fred","home":"bedrock"}', file=sys.stderr)
+        print ('{"level":"info","name":"fred2","home":"bedrock2"}', file=sys.stderr)
+        print ('not json log entry', file=sys.stderr)
         time.sleep(60)
     finally:
         print ('{"level":"info","name":"exit","home":"exit"}', file=sys.stderr)
